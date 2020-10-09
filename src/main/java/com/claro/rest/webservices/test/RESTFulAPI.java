@@ -85,8 +85,7 @@ public class RESTFulAPI {
 		
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
 		messageSource.setBasename("messages");
-		return messageSource;
-		
+		return messageSource;		
 		
 		
 	}
