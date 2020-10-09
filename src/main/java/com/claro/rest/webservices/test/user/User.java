@@ -2,9 +2,15 @@ package com.claro.rest.webservices.test.user;
 
 import java.util.Date;
 
+// APIMODEL ---------------------> Swagger documentation.
+
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Todos os detalhes sobre o usuário")
 public class User {
 	
 	private Integer id;
@@ -14,6 +20,7 @@ public class User {
 	// a API lança 400 Bad Request (HTTP Status)
 	
 	@Size(min=2, message="Nome deve ter mais do que 02 caracteres")
+	@ApiModelProperty(notes="Nomes devem ter no mínimo 02 caracteres")
 	private String name;
 	
 	// @Past faz parte da dependency spring-boot-starter-validation e seta que o birthDate
@@ -21,6 +28,7 @@ public class User {
 	// a API lança 400 Bad Request (HTTP Status)
 	
 	@Past
+	@ApiModelProperty(notes="Data de nascimento deve estar no passado")
 	private Date birthDate;
 	
 	// Construtor (Alt + Shift + S)

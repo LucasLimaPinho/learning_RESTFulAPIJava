@@ -17,13 +17,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @Configuration
 @EnableSwagger2WebMvc
 
+
+// http://localhost:8080/v2/api-docs --------------> paths expõem todos os recursos disponíveis na API
+// http://localhost:8080/swagger-ui/index.html#/ ---------------------> UI do Swagger configurado
+
+
 public class SwaggerConfig {
 
 	public static final Contact DEFAULT_CONTACT = new Contact(
-			"Ranga Karanam", "http://www.in28minutes.com", "in28minutes@gmail.com");
+			"Lucas Lima Reis de Pinho", "http://www.github.com/LucasLimaPinho", "lucaslimareisdepinho@gmail.com");
 	
 	public static final ApiInfo DEFAULT_API_INFO = new ApiInfo(
-			"Awesome API Title", "Awesome API Description", "1.0",
+			"Awesome API Title", "API de teste", "1.0",
 			"urn:tos", DEFAULT_CONTACT, 
 			"Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0", Arrays.asList());
 
