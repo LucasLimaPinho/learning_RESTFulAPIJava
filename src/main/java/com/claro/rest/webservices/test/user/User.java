@@ -12,12 +12,14 @@ public class User {
 	// @Size faz parte da dependency spring-boot-starter-validation e seta o mínimo de caractereres que
 	// o name em uma request de POST deve possuir. Caso a condição não seja atendida,
 	// a API lança 400 Bad Request (HTTP Status)
-	@Size(min=2)
+	
+	@Size(min=2, message="Nome deve ter mais do que 02 caracteres")
 	private String name;
 	
 	// @Past faz parte da dependency spring-boot-starter-validation e seta que o birthDate
 	// em um request de POST deve estar no passado. Caso a condição não seja atendida,
-	// a API lança 400 Bad Request (HTTP Status)	
+	// a API lança 400 Bad Request (HTTP Status)
+	
 	@Past
 	private Date birthDate;
 	
