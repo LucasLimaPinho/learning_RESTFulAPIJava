@@ -1,4 +1,4 @@
-package com.claro.rest.webservices.test;
+package com.claro.rest.webservices.test.helloworld;
 
 public class HelloWorldBean {
 
