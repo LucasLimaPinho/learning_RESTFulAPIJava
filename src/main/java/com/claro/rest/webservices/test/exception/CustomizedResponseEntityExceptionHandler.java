@@ -23,12 +23,15 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestController
 public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 	
+	
+	//Exception handler para todos os tipos de exception
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request){
 		
 		ExceptionResponse exceptionResponse =
 				new ExceptionResponse(new Date(), ex.getMessage(),
-				request.getDescription(false));
+				request.getDescription(false));		
+		
 		
 		// Primeiro argumento é o objeto a ser serializado para JSON definido em nossa classe
 		// ExceptionResponse.java e o segundo argumento é o HTTP_STATUS padrão a ser mostrado para 
@@ -37,8 +40,29 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 		
 		
+	}
+	
+	//Exception handler customizado para Exceptions em que o id não foi encontrado
+	
+	@ExceptionHandler(UserNotFoundException.class)
+	public final ResponseEntity<Object> handleUserNotFoundExceptions(Exception ex, WebRequest request){
+		
+		ExceptionResponse exceptionResponse =
+				new ExceptionResponse(new Date(), ex.getMessage(),
+				request.getDescription(false));		
+		
+		
+		// Primeiro argumento é o objeto a ser serializado para JSON definido em nossa classe
+		// ExceptionResponse.java e o segundo argumento é o HTTP_STATUS padrão a ser mostrado para 
+		// para exceção UserNotFoundException.class.
+		
+		return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
+		
 		
 	}
+	
+	
+	
 	
 	
 

@@ -1,4 +1,4 @@
-package com.claro.rest.webservices.test.user;
+package com.claro.rest.webservices.test.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
